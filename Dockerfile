@@ -13,7 +13,7 @@ RUN <<-EOT sh
 	apt-get update
 	env DEBIAN_FRONTEND=noninteractive \
 		apt-get install -y --no-install-recommends \
-		wget ca-certificates build-essential cmake g++ psmisc \
+		wget ca-certificates build-essential cmake g++ \
 		libsane-dev libjpeg-dev libpng-dev libavahi-client-dev libusb-1.*-dev \
 		-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 	apt-get clean && rm -rf /var/lib/apt/lists/* /var/lib/apt/lists/*
@@ -31,7 +31,7 @@ RUN <<-EOT sh
 
 	apt-get update
 	env DEBIAN_FRONTEND=noninteractive \
-		apt-get install -y --no-install-recommends sane-utils \
+		apt-get install -y --no-install-recommends sane-utils psmisc \
 		libsane libjpeg62-turbo libpng16-16 libavahi-client3 libusb-1.0-0 \
 		-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 	apt-get clean && rm -rf /var/lib/apt/lists/* /var/lib/apt/lists/*
