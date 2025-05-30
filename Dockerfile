@@ -13,7 +13,7 @@ RUN <<-EOT sh
 	apt-get update
 	env DEBIAN_FRONTEND=noninteractive \
 		apt-get install -y --no-install-recommends \
-		wget ca-certificates build-essential cmake g++ \
+		wget ca-certificates build-essential cmake g++ psmisc \
 		libsane-dev libjpeg-dev libpng-dev libavahi-client-dev libusb-1.*-dev \
 		-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 	apt-get clean && rm -rf /var/lib/apt/lists/* /var/lib/apt/lists/*
