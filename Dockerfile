@@ -2,7 +2,7 @@ ARG BASE_IMAGE=library/debian:stable-slim
 
 FROM docker.io/${BASE_IMAGE} AS builder
 
-ARG AIRSANE_REPO=https://github.com/johan12345/AirSane.git
+ARG AIRSANE_REPO=https://github.com/johan12345/AirSane
 ARG AIRSANE_BRANCH=master
 
 WORKDIR /opt/AirSane
