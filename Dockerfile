@@ -3,7 +3,7 @@ ARG BASE_IMAGE=library/debian:stable-slim
 FROM docker.io/${BASE_IMAGE} AS builder
 
 ARG AIRSANE_REPO=https://github.com/SimulPiscator/AirSane
-ARG AIRSANE_TAG=v0.4.6
+ARG AIRSANE_TAG=v0.4.12
 
 WORKDIR /opt/AirSane
 
@@ -32,7 +32,7 @@ RUN <<-EOT sh
 	apt-get update
 	env DEBIAN_FRONTEND=noninteractive \
 		apt-get install -y --no-install-recommends sane-utils psmisc \
-		libsane libjpeg62-turbo libpng16-16 libavahi-client3 libusb-1.0-0 \
+		libsane1 libjpeg62-turbo libpng16-16 libavahi-client3 libusb-1.0-0 \
 		-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 	apt-get clean && rm -rf /var/lib/apt/lists/* /var/lib/apt/lists/*
 	mkdir -p /etc/airsane
